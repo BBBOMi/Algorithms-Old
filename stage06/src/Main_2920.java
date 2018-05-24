@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main_2920 {
@@ -6,25 +7,30 @@ public class Main_2920 {
 		// TODO Auto-generated method stub
 		Scanner input  = new Scanner(System.in);
 		int[] arr = new int[8];
-		boolean[] test = new boolean[8];
-		int count = 0;
+		String check = "mixed";
 		
 		for(int i=0; i<arr.length; i++) {
 			arr[i] = input.nextInt();
 		}
 		
+		int[] arrCheck = Arrays.copyOf(arr, arr.length);
+		Arrays.sort(arrCheck);
+		
 		for(int i=0; i<arr.length; i++) {
-			if(arr[i] == i+1)
-				test[i] = true;
-			else if(arr[i] == arr.length-i)
-				test[i] = false;
+			if(arr[arr.length-1-i] == arrCheck[i] && (check != "ascending")) {
+				//System.out.println(arr[arr.length-1] + " " + arrCheck[i]);
+				check = "descending";
+			} else if (arr[i] == arrCheck[i] && (check != "descending")) {
+				//System.out.println(arr[i] + " " + arrCheck[i]);
+				check = "ascending";
+			} else {
+				//System.out.println(arr[i] + " " + arrCheck[i]);
+				check = "mixed";
+				break;
+			}
 		}
 		
-		for(int i=0; i<test.length; i++) {
-			if(test[i] == true)
-				count++;
-		}
+		System.out.println(check);
 		
-		System.out.println((count == 8? "ascending" : (count == 0)? "descending" : "mixed"));
 	}
 }
