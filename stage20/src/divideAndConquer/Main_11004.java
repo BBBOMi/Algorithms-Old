@@ -20,10 +20,36 @@ public class Main_11004 {
 		for(int i=0; i<intArr.length; i++)
 			intArr[i] = sc.nextInt();
 		
-		Arrays.sort(intArr);
+		mergeSort(intArr, 0, intArr.length-1);
 		
 		System.out.println(intArr[k-1]);
-
 	}
-
+	
+	public static void mergeSort(int[] a, int start, int end) {
+		if(start == end) return;
+		int middle = (start + end) / 2;
+		mergeSort(a, start, middle);
+		mergeSort(a, middle+1, end);
+		merge(a, start, middle, end);
+	}
+	
+	public static void merge(int[] a, int start, int middle, int end) {
+		int length = end - start + 1;
+		int[] sorted = new int[length];
+		int i = 0;
+		int ind1 = start;
+		int ind2 = middle + 1;
+		
+		while(ind1 <= middle && ind2 <= end) {
+			if(a[ind1] < a[ind2])
+				sorted[i++] = a[ind1++];
+			else sorted[i++] = a[ind2++];
+		}
+		
+		while(ind1 <= middle) sorted[i++] = a[ind1++];
+		while(ind2 <= end) sorted[i++] = a[ind2++];
+		
+		for(int j=0; j<sorted.length; j++)
+			a[start + j] = sorted[j];
+	}
 }
