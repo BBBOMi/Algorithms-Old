@@ -35,16 +35,25 @@ public class Main_1260 {
 	
 	public static void DFS(int v) {
 		visited[v-1] = true;
-		System.out.println(v + " ");
+		System.out.print(v + " ");
 		
 		for(int i=0; i<graph.length; i++) {
 			if(!visited[i] && graph[v-1][i] == 1) {
-				DFS(i);
+				DFS(i+1);
 			}
 		}
 	}
 	
 	public static void BFS(int v) {
+		visited[v-1] = true;
+		System.out.print(v + " ");
+		
+		for(int i=0; i<graph.length; i++) {
+			if(!visited[i] && graph[v-1][i] == 1) {
+				visited[i] = true;
+				System.out.print(i + " ");
+			}
+		}
 		
 	}
 
