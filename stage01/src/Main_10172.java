@@ -4,9 +4,9 @@ public class Main_10172 { // #10172
 		// TODO Auto-generated method stub
 		
 		System.out.println("|\\_/|");
-		System.out.println("|q p|\t/}");
+		System.out.println("|q p|   /}");
 		System.out.println("( 0 )\"\"\"\\");
-		System.out.println("|\"^\"`\t |");
+		System.out.println("|\"^\"`    |");
 		System.out.println("||_/=\\\\__|");
 	}
 }
