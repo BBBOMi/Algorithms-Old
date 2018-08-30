@@ -29,12 +29,13 @@ public class Main_6359 {
 		boolean[] rooms = new boolean[size];
 		// 열려있는 상태 - false
 		for(int i=2; i<=n; i++) {
-			/*for(int j=i; j<=size; j++) {
+			for(int j=i; j<=size; j++) {
 				if(j % i == 0)
 					rooms[j-1] = !rooms[j-1];
-			}*/
-			for(int j=1, sub=i*j; sub<=size; sub=i*(++j))
+			}
+			/*for(int j=1, sub=i*j; sub<=size; sub=i*(++j))
 				rooms[sub-1] = !rooms[sub-1];
+				*/
 		}
 		int count=0;
 		for(int i=0; i<rooms.length; i++) {
