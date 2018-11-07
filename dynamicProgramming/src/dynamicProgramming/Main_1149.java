@@ -11,7 +11,7 @@ public class Main_1149 {
 		int[][] dp = new int[n][3];
 
 		for(int i=0; i<arr.length; i++) {
-			for(int j=0; j<=3; j++) {
+			for(int j=0; j<3; j++) {
 				arr[i][j] = Integer.parseInt(sc.next().trim());
 			}
 		}
