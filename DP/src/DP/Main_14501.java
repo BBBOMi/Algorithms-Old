@@ -6,7 +6,7 @@
  		 1일부터 N일까지 순서대로 주어진다. (1 ≤ Ti ≤ 5, 1 ≤ Pi ≤ 1,000)
  * <출력> 첫째 줄에 백준이가 얻을 수 있는 최대 이익을 출력한다.
  */
-package dynamicProgramming;
+package DP;
 
 import java.util.*;
 

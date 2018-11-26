@@ -1,4 +1,4 @@
-package dynamicProgramming;
+package DP;
 
 import java.util.*;
 
@@ -28,7 +28,7 @@ public class Main_1149 {
 
 		System.out.println(min(min(dp[n-1][0], dp[n-1][1]), dp[n-1][2]));
 	}
-	
+
 	static int min(int a, int b) {
 		return a>b ? b : a;
 	}

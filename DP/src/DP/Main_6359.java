@@ -7,7 +7,7 @@
  * <출력> 한 줄에 한 개씩 각 테스트 케이스의 답, 즉 몇 명이 탈출할 수 있는지를 출력한다.
  */
 
-package dynamicProgramming;
+package DP;
 
 import java.util.*;
 

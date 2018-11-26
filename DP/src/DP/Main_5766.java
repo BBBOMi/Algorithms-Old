@@ -10,7 +10,7 @@
   		 2등인 선수가 두 명 이상인 경우(동점자 발생), 각 선수 번호를 공백으로 구분하여 오름차순으로 출력해야 합니다.
  */
 
-package dynamicProgramming;
+package DP;
 
 import java.util.*;
 
