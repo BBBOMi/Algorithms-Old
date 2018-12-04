@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 public class Main_1759 {
+    static int count = 0;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -32,23 +33,31 @@ public class Main_1759 {
 
     static void solution(List<Character> list, StringBuffer sb, boolean[] check) {
         if(sb.length() == sb.capacity()) {
-           System.out.println(sb.toString());
+            if(count != 0)
+                System.out.println(sb.toString());
        } else {
             int n = sb.length() == 0 ? 0 : list.indexOf(sb.charAt(sb.length() - 1));
 
             for(int i = n; i < list.size(); i++) {
                char ch = list.get(i);
 
-               if(!check[ch - 96]) {
-                   check[ch - 96] = true;
+               if(!check[ch - 97]) {
+                   check[ch - 97] = true;
                    sb.append(ch);
+                   if(ch == 97 || ch == 101 || ch == 105 || ch == 111 || ch == 117) {
+                       count++;
+                   }
                    solution(list, sb, check);
                }
            }
        }
 
        if(sb.length() != 0) {
-           check[sb.charAt(sb.length() - 1) - 96] = false;
+           char ch = sb.charAt(sb.length() - 1);
+           check[ch - 97] = false;
+           if(ch == 97 || ch == 101 || ch == 105 || ch == 111 || ch == 117) {
+               count--;
+           }
            sb.deleteCharAt(sb.length() - 1);
        }
     }
