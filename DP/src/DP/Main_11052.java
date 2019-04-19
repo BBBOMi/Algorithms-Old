@@ -3,33 +3,21 @@ package DP;
 import java.util.*;
 
 public class Main_11052 {
-	static int n;
-	static int[] arr;
-	static int max = 0;
-	static int sum = 0;
-
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		n = Integer.parseInt(sc.nextLine().trim());
-		arr = new int[n+1];
-	
-		for(int i=1; i<arr.length; i++) {
-			arr[i] = Integer.parseInt(sc.next().trim());
-		}
-		
-		solution(0, 0);
-	}
+		int n = Integer.parseInt(sc.nextLine().trim());
+		int[] dp = new int[n+1];
 
-	static void solution(int num, int sum) {
-		if(num > n) {
-			return;
+		for(int i=1; i<dp.length; i++) {
+			dp[i] = Integer.parseInt(sc.next().trim());
 		}
-		if(num == n) {
-			if(max < sum) {
-				max = sum;
+
+		for(int i=1; i<dp.length; i++) {
+			for(int j=1; j<=i/2; j++) {
+				int num = dp[j] + dp[i-j];
+				if(dp[i] < num) dp[i] = num;
 			}
-			return;
 		}
-		
+		System.out.println(dp[n]);
 	}
 }
