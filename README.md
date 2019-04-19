@@ -1,5 +1,14 @@
 # Algorithm
 
+문제 출처 : BaekJoon / Codility
+
+
+
+### Tool and Language
+
+> STS, IntelliJ
+> Java
+
 
 
 ## 알고리즘 분류
