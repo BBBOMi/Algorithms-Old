@@ -1,3 +1,5 @@
+package me.algo;
+
 import java.util.Scanner;
 
 public class Main_2675 { // #2675

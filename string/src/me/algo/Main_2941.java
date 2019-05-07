@@ -1,4 +1,4 @@
-
+package me.algo;
 
 import java.util.Scanner;
 
