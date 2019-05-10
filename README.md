@@ -17,6 +17,7 @@
 * Math
 * BFS
 * DFS
+* BinarySearch
 * Sort
 * Stack
 * Queue
