@@ -1,4 +1,4 @@
-package stack;
+package me.algo;
 
 import java.util.*;
 
