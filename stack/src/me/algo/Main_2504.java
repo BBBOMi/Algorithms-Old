@@ -1,77 +1,53 @@
 package me.algo;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class Main_2504 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		String str = sc.nextLine().trim();
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine();
 		int result;
 		result = calculate(str);
 		System.out.println(result);
 	}
-	
-	public static int calculate(String str) {
-		if(testPair(str)) {
-			Stack<Character> s = new Stack<>();
-			Stack<Integer> result = new Stack<>();
-			char ch;
-			boolean optPop = false;
 
-			for(int i=0; i<str.length(); i++) {
-				ch = str.charAt(i);
-				if(ch == '(' || ch == '[') {
-					s.push(ch);
-					optPop = false;
-				} else {
-					if(ch == ')') {
-						s.pop();
-						result.push(2);
-					} else {
-						s.pop();
-						result.push(3);
-					}
-					
-					if(optPop) {
-						int opr1 = result.pop();
-						int opr2 = result.pop();
-						result.push(opr1 * opr2);
-					}
-					optPop = true;
-				}
+	static int calculate(String str) {
+		Stack<Character> stack = new Stack<>();
+		int sum = 0;
+		int multiple = 1;
+		char pre = 0;
+		for(char c : str.toCharArray()) {
+			switch(c) {
+				case '(':
+					stack.push(c);
+					multiple *= 2;
+					break;
+
+				case '[':
+					stack.push(c);
+					multiple *= 3;
+					break;
+
+				case ')':
+					if(stack.isEmpty()) return 0;
+					if(stack.pop() != '(') return 0;
+					if(pre == '(') sum += multiple;
+					multiple /= 2;
+					break;
+
+				case ']':
+					if(stack.isEmpty()) return 0;
+					if(stack.pop() != '[') return 0;
+					if(pre == '[') sum += multiple;
+					multiple /= 3;
+					break;
 			}
-			
-			
-			
-			return result.pop();
-		} else return 0;
-	}
-	
-	public static boolean testPair(String str) {
-		Stack<Character> s = new Stack<>();
-		char ch, pair;
-		
-		for(int i=0; i<str.length(); i++) {
-			ch = str.charAt(i);
-			
-			if(ch == '(' || ch == '[') {
-				s.push(ch);
-			} else {
-				if(s.isEmpty())
-					return false;
-				else {
-					pair = s.peek();
-					if(pair == '(' && ch == ')' || pair == '[' && ch == ']')
-						s.pop();
-					else 
-						return false;
-				}
-			}
+			pre = c;
 		}
-		
-		if(s.isEmpty()) return true;
-		else return false;
+		return stack.isEmpty() ? sum : 0;
 	}
 }
