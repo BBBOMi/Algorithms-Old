@@ -7,8 +7,8 @@ import java.util.StringTokenizer;
  * Created by bomi on 2019-10-08.
  * 문제 출처 : https://www.acmicpc.net/problem/4963
  *
- * 시간 복잡도 : O(N^2)
- * 공간 복잡도 : O(N^2)
+ * 시간 복잡도 : O(N)
+ * 공간 복잡도 : O(N)
  * 사용한 알고리즘 : DFS
  * 사용한 자료구조 : 배열
  */
